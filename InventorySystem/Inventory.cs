@@ -204,6 +204,7 @@ namespace InventorySystem
             Console.WriteLine("5:  Go back");
 
             choice = Console.ReadLine();
+            //It cost 25 gold to buy any potions
 
             if (gold <= 24)
             {
