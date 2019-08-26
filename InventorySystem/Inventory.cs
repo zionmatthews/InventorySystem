@@ -8,17 +8,27 @@ namespace InventorySystem
 {
     class Inventory
     {
-        int damage = 0;
-        float gold = 0.00f;
-        string choice = "";
-        int protection = 0;
-        float amount = 0.00f;
+        private int _damage = 0;
+        private float _gold = 0.00f;
+        private string _choice = "";
+        private int _protection = 0;
+        private float _amount = 0.00f;
+        private Attack_Item[] _weaponList = new Attack_Item[10];
+        private Attack_Item sword = new Attack_Item("Master Sword", 10, 3);
+        private Attack_Item sword2 = new Attack_Item("Not Master Sword", 10, 3);
+        private Attack_Item[] weapons = new Attack_Item[3];
+
+        public Inventory()
+        {
+            Attack_Item[] weaponBag = { sword , sword2};
+            weapons = weaponBag;
+        }
         public void Menu()
         {
 
 
 
-            while (choice != "0")
+            while (_choice != "0")
             {
                 //Display menu
                 Console.WriteLine("\nMenu");
@@ -32,46 +42,49 @@ namespace InventorySystem
                 Console.WriteLine("7: Buy Potions");
 
                 //Get input
-                choice = Console.ReadLine();
+                _choice = Console.ReadLine();
                 Console.WriteLine("");
 
                 //check input
-                if (choice == "1")
+                if (_choice == "1")
                 {
                     EquipWeapon();
                 }
 
 
-                else if (choice == "2")
+                else if (_choice == "2")
                 {
                     UnequipWeapon();
                 }
-                else if (choice == "3")
+                else if (_choice == "3")
                 {
                     Console.WriteLine("How much gold?");
                     float addedGold = Convert.ToSingle(Console.ReadLine());
                     AddGold(addedGold);
                 }
-                else if (choice == "4")
+                else if (_choice == "4")
                 {
                     Console.WriteLine("How much gold");
                     float subtractedGold = Convert.ToSingle(Console.ReadLine());
                     SubtractGold(subtractedGold);
                 }
-                else if (choice == "5")
+                else if (_choice == "5")
                 {
                     Armor();
                 }
-                else if (choice == "6")
+                else if (_choice == "6")
                 {
                     UnequipArmor();
                 }
-                else if (choice == "7")
+                else if (_choice == "7")
                 {
-                    Potions(amount);
+                    Potions(_amount);
                 }
             }
         }
+
+        
+
         public void EquipWeapon()
         {
             //Weapons
@@ -82,33 +95,33 @@ namespace InventorySystem
             Console.WriteLine("4: Dagger");
             Console.WriteLine("5:  Go Back");
 
-            choice = Console.ReadLine();
+            _choice = Console.ReadLine();
 
-            if (choice == "1")
+            if (_choice == "1")
             {
                 Console.WriteLine("You now have the Battle Axe!");
-                damage = 30;
-                Console.WriteLine("Damage:" + damage);
+                _damage = 30;
+                Console.WriteLine("Damage:" + _damage);
             }
-            else if (choice == "2")
+            else if (_choice == "2")
             {
                 Console.WriteLine("You now have a sword");
-                damage = 40;
-                Console.WriteLine("Damage:" + damage);
+                _damage = 40;
+                Console.WriteLine("Damage:" + _damage);
             }
-            else if (choice == "3")
+            else if (_choice == "3")
             {
                 Console.WriteLine("You now have a Hammer");
-                damage = 50;
-                Console.WriteLine("Damage:" + damage);
+                _damage = 50;
+                Console.WriteLine("Damage:" + _damage);
             }
-            else if (choice == "4")
+            else if (_choice == "4")
             {
                 Console.WriteLine("You now have Dagger");
-                damage = 60;
-                Console.WriteLine("Damage:" + damage);
+                _damage = 60;
+                Console.WriteLine("Damage:" + _damage);
             }
-            else if (choice == "5")
+            else if (_choice == "5")
             {
                 Menu();
             }
@@ -119,20 +132,20 @@ namespace InventorySystem
         {
 
             Console.WriteLine("Unquipped a weapon!");
-            damage = 10;
-            Console.WriteLine("Damage:" + damage);
+            _damage = 10;
+            Console.WriteLine("Damage:" + _damage);
 
         }
 
         public void AddGold(float amount)
         {
             Console.WriteLine("Got " + amount + " gold!");
-            gold += amount;
-            Console.WriteLine("Gold: " + gold);
+            _gold += amount;
+            Console.WriteLine("Gold: " + _gold);
         }
         public void SubtractGold(float amount)
         {
-            if (gold <= 0)
+            if (_gold <= 0)
             {
                 Console.WriteLine("Sorry, you don't have any.");
                 return;
@@ -140,8 +153,8 @@ namespace InventorySystem
 
 
             Console.WriteLine("Lost " + amount + " gold!");
-            gold -= amount;
-            Console.WriteLine("Gold: " + gold);
+            _gold -= amount;
+            Console.WriteLine("Gold: " + _gold);
 
 
         }
@@ -155,33 +168,33 @@ namespace InventorySystem
             Console.WriteLine("4: Diamond Armor");
             Console.WriteLine("5:  Go Back");
 
-            choice = Console.ReadLine();
+            _choice = Console.ReadLine();
 
-            if (choice == "1")
+            if (_choice == "1")
             {
                 Console.WriteLine("You now have Chain Armor ");
-                protection = 30;
-                Console.WriteLine("Protection:" + protection);
+                _protection = 30;
+                Console.WriteLine("Protection:" + _protection);
             }
-            else if (choice == "2")
+            else if (_choice == "2")
             {
                 Console.WriteLine("You now have Iron Armor");
-                protection = 40;
-                Console.WriteLine("Protection:" + protection);
+                _protection = 40;
+                Console.WriteLine("Protection:" + _protection);
             }
-            else if (choice == "3")
+            else if (_choice == "3")
             {
                 Console.WriteLine("You now have Redstone Armor");
-                protection = 50;
-                Console.WriteLine("Protection:" + protection);
+                _protection = 50;
+                Console.WriteLine("Protection:" + _protection);
             }
-            else if (choice == "4")
+            else if (_choice == "4")
             {
                 Console.WriteLine("You now have Diamond Armor");
-                protection = 60;
-                Console.WriteLine("Protection:" + protection);
+                _protection = 60;
+                Console.WriteLine("Protection:" + _protection);
             }
-            else if (choice == "5")
+            else if (_choice == "5")
             {
                 Menu();
             }
@@ -189,8 +202,8 @@ namespace InventorySystem
         public void UnequipArmor()
         {
             Console.WriteLine("Unequiped Armor");
-            protection = 10;
-            Console.WriteLine("Protection:" + protection);
+            _protection = 10;
+            Console.WriteLine("Protection:" + _protection);
         }
 
         public void Potions(float amount)
@@ -203,48 +216,48 @@ namespace InventorySystem
             Console.WriteLine("4: Water potion");
             Console.WriteLine("5:  Go back");
 
-            choice = Console.ReadLine();
+            _choice = Console.ReadLine();
             //It cost 25 gold to buy any potions
 
-            if (gold <= 24)
+            if (_gold <= 24)
             {
                 Console.WriteLine("You don't have enought to buy this.");
                 return;
             }
-            else if (choice == "1")
+            else if (_choice == "1")
             {
                 Console.WriteLine("You now have Speed potion");
 
                 Console.WriteLine("Lost " + amount + " gold!");
-                gold -= amount;
-                Console.WriteLine("Gold: " + gold);
+                _gold -= amount;
+                Console.WriteLine("Gold: " + _gold);
 
             }
-            if (choice == "2")
+            if (_choice == "2")
             {
                 Console.WriteLine("You now have Strenth potion ");
 
                 Console.WriteLine("Lost " + amount + " gold!");
-                gold -= amount;
-                Console.WriteLine("Gold: " + gold);
+                _gold -= amount;
+                Console.WriteLine("Gold: " + _gold);
             }
-            if (choice == "3")
+            if (_choice == "3")
             {
                 Console.WriteLine("You now have Fire potion");
 
                 Console.WriteLine("Lost " + amount + " gold!");
-                gold -= amount;
-                Console.WriteLine("Gold: " + gold);
+                _gold -= amount;
+                Console.WriteLine("Gold: " + _gold);
             }
-            if (choice == "4")
+            if (_choice == "4")
             {
                 Console.WriteLine("You now have Water potion");
 
                 Console.WriteLine("Lost " + amount + " gold!");
-                gold -= amount;
-                Console.WriteLine("Gold: " + gold);
+                _gold -= amount;
+                Console.WriteLine("Gold: " + _gold);
             }
-            if (choice == "5")
+            if (_choice == "5")
             {
                 Menu();
             }
