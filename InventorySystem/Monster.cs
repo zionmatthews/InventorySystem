@@ -50,13 +50,56 @@ namespace InventorySystem
         }
 
         public void Print()
-        {
-            Console.WriteLine("/n" + _name);
+          {
+            Console.WriteLine("\n" + _name);
             Console.WriteLine(_health);
             Console.WriteLine(_maxHealth);
             Console.WriteLine(_damage);
             Console.ReadKey();
 
+        }
+        public void Fight(Monster target)
+        {
+            if(Health <= 0)
+            {
+                return;
+            }
+            int damage = GetDamage();
+            damage -= Health;
+            target.Health -= damage;
+            Console.WriteLine(GetName() + "attacks! " + target.GetName() + " takes " + damage);
+
+        }
+        public void Fight(Monster[] targets)
+        {
+            if (Health <= 0)
+            {
+                return;
+            }
+
+            bool validInput = false;
+            while (!validInput)
+            {
+                Console.WriteLine("\nWho will " + GetName() + " fight? ");
+               
+
+                for (int i = 0; i < targets.Length; i++)
+                {
+                    string targetName = targets[i].GetName();
+                    Console.WriteLine(i + ": " + targetName);
+                }
+
+                string input = Console.ReadLine();
+                int choice = Convert.ToInt32(input);
+                
+                if (choice >= 0 && choice < targets.Length)
+                {
+                    validInput = true;
+
+                    Fight(targets[choice]);
+                }
+
+            }
         }
     }    
 

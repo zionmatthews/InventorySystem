@@ -10,6 +10,24 @@ namespace InventorySystem
     {
         static void Main(string[] args)
         {
+            Monster UwU = new Monster("UwU", 10, 4);
+            Monster OwO = new Monster("0w0", 10, 4);
+            Monster VwV = new Monster("VwV", 5, 6);
+            Monster YwY = new Monster("YwY", 5, 6);
+
+
+            Monster[] UwO = { UwU, OwO };
+            Monster[] VwY = { VwV, YwY };
+
+            Encounter encounter = new Encounter(UwO, VwY);
+            encounter.Print();
+            encounter.Start();
+
+
+            Console.ReadKey();
+            return;
+
+
             //Inventory inventory = new Inventory();
             //inventory.Menu();
             string name = "";
