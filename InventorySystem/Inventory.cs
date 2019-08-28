@@ -13,15 +13,21 @@ namespace InventorySystem
         private string _choice = "";
         private int _protection = 0;
         private float _amount = 0.00f;
-        private Attack_Item[] _weaponList = new Attack_Item[10];
-        private Attack_Item sword = new Attack_Item("Master Sword", 10, 3);
-        private Attack_Item sword2 = new Attack_Item("Not Master Sword", 10, 3);
-        private Attack_Item[] weapons = new Attack_Item[3];
+        private Attack_Item[] _weaponList = new Attack_Item[4];
+        private DefenseItem[] _armorList = new DefenseItem[4];
 
         public Inventory()
         {
-            Attack_Item[] weaponBag = { sword , sword2};
-            weapons = weaponBag;
+            _weaponList[0] = new Attack_Item("Battle axe", 5, 5);
+            _weaponList[1] = new Attack_Item("Sword", 15, 15);
+            _weaponList[2] = new Attack_Item("Hammer ", 30, 30);
+            _weaponList[3] = new Attack_Item("Dagger", 40, 40);
+
+            _armorList[0] = new DefenseItem("chain", 5, 5);
+            _armorList[1] = new DefenseItem("Iron", 25, 15);
+            _armorList[2] = new DefenseItem("Redstone", 40, 25);
+            _armorList[3] = new DefenseItem("Diamond", 50, 30);
+            
         }
         public void Menu()
         {
