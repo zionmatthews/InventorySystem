@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InventorySystem
 {
-    class Character
+    class Character : entity_303
     {
         private string _name = "";
         private int _xp = 0;
@@ -24,8 +24,18 @@ namespace InventorySystem
         public Character(string name)
         {
             _name = name;
+            _health = 100;
+            _maxHealth = 100;
+        }
+        public override string GetName()
+        {
+            return _name;
         }
 
+        public override int GetDamage()
+        {
+            return _strength + inventory.GetItemDamage();
+        }
         public string Name()
         {
             return _name;
@@ -72,8 +82,55 @@ namespace InventorySystem
             }
         }
 
+
+
         public void weaponAccess()
         {
+
+        }
+
+        public override void Fight(entity_303 target)
+        {
+            if (Health <= 0)
+            {
+                return;
+            }
+            int damage = GetDamage();
+            target.Health -= damage;
+            Console.WriteLine(GetName() + "attacks! " + target.GetName() + " takes " + damage);
+
+        }
+        public override  void Fight(entity_303[] targets)
+        {
+            if (Health <= 0)
+            {
+                return;
+            }
+
+            bool validInput = false;
+            while (!validInput)
+            {
+                Console.WriteLine("\nWho will " + GetName() + " fight? ");
+
+
+                for (int i = 0; i < targets.Length; i++)
+                {
+                    string targetName = targets[i].GetName();
+                    Console.WriteLine(i + ": " + targetName);
+                }
+
+                string input = Console.ReadLine();
+                int choice = Convert.ToInt32(input);
+
+                if (choice >= 0 && choice < targets.Length)
+                {
+                    validInput = true;
+
+                    Fight(targets[choice]);
+                }
+
+            }
+
 
         }
     }

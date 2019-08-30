@@ -47,6 +47,7 @@
     <Compile Include="Character.cs" />
     <Compile Include="DefenseItem.cs" />
     <Compile Include="Encounter.cs" />
+    <Compile Include="entity_303.cs" />
     <Compile Include="Inventory.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Mage.cs" />

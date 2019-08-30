@@ -12,12 +12,14 @@ namespace InventorySystem
         {
             Monster UwU = new Monster("UwU", 10, 4);
             Monster OwO = new Monster("0w0", 10, 4);
-            Monster VwV = new Monster("VwV", 5, 6);
-            Monster YwY = new Monster("YwY", 5, 6);
+            Monster VwU = new Monster("VwU", 5, 6);
+            Monster YwU = new Monster("YwU", 5, 6);
+            Character myself = new Mage("Me :)");
 
+            entity_303[] UwO = { UwU, OwO };
+            entity_303[] VwY = { VwU, YwU };
 
-            Monster[] UwO = { UwU, OwO };
-            Monster[] VwY = { VwV, YwY };
+            myself.OpenInventory();
 
             Encounter encounter = new Encounter(UwO, VwY);
             encounter.Print();
@@ -72,7 +74,7 @@ namespace InventorySystem
             choice = "";
             while (choice != "0")
             {
-
+                 
 
 
                 //display menu]

@@ -29,6 +29,12 @@ namespace InventorySystem
             _armorList[3] = new DefenseItem("Diamond", 50, 30);
             
         }
+
+        internal int GetItemDamage()
+        {
+            throw new NotImplementedException();
+        }
+
         public void Menu()
         {
 

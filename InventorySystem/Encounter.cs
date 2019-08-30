@@ -9,10 +9,10 @@ namespace InventorySystem
     class Encounter
     {
         private int _goodMonster;
-        private Monster[] _goodMonsters;
-        private Monster[] _badMonsters;
+        private entity_303[] _goodMonsters;
+        private entity_303[] _badMonsters;
 
-        public Encounter(Monster[] team1, Monster[] team2)
+        public Encounter(entity_303[] team1, entity_303[] team2)
         {
             _goodMonsters = team1;
             _badMonsters = team2;
@@ -23,13 +23,13 @@ namespace InventorySystem
             //The good monsters
             for (int i = 0; i <_goodMonsters.Length; i++)
             {
-                Monster currentMonster = _goodMonsters[i];
+                entity_303 currentMonster = _goodMonsters[i];
                 currentMonster.Print();
             }
             //The bad monsters
             for (int i = 0; i <_badMonsters.Length; i++)
             {
-                Monster currentMonster = _badMonsters[i];
+                entity_303 currentMonster = _badMonsters[i];
                 currentMonster.Print();
             }
         }
@@ -38,13 +38,13 @@ namespace InventorySystem
         {
            for (int i = 0; i <_goodMonsters.Length; i++)
            {
-                Monster currentMonster = _goodMonsters[i];
+                entity_303 currentMonster = _goodMonsters[i];
                 currentMonster.Fight(_badMonsters);
 
            }
            for (int i = 0; i <_badMonsters.Length; i++)
            {
-                Monster currentMonster = _badMonsters[i];
+                entity_303 currentMonster = _badMonsters[i];
                 currentMonster.Fight(_goodMonsters);
            }
         }
@@ -59,7 +59,7 @@ namespace InventorySystem
                 bool team1 = true;
                 for (int i = 0; i < _goodMonsters.Length; i++)
                 {
-                    Monster currentMonster = _goodMonsters[i];
+                    entity_303 currentMonster = _goodMonsters[i];
                     if (currentMonster.Health > 0)
                     {
                         /*our team is alive and not dead, break out
@@ -77,7 +77,7 @@ namespace InventorySystem
                 int totalBadHealth = 0;
                     for (int i = 0; i < _badMonsters.Length; i++)
                     {
-                        Monster currentMonster = _badMonsters[i];
+                        entity_303 currentMonster = _badMonsters[i];
                         //Total up the health of each monster on this team
                         totalBadHealth += currentMonster.Health;
 

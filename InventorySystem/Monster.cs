@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace InventorySystem
 {
-    class Monster
-    {
+    class Monster : entity_303
+    {   
         private string _name = "Lynx";
         private int _health = 100;
         private int _damage = 20;
@@ -20,11 +20,11 @@ namespace InventorySystem
             _maxHealth = health;
             _damage = damage;
         }
-        public string GetName()
+        public override string GetName()
         {
             return _name;
         }
-        public int GetDamage()
+        public override int GetDamage()
         {
             return _damage;
         }
@@ -49,7 +49,9 @@ namespace InventorySystem
 
         }
 
-        public void Print()
+
+
+        public  void Print()
           {
             Console.WriteLine("\n" + _name);
             Console.WriteLine(_health);
@@ -58,19 +60,18 @@ namespace InventorySystem
             Console.ReadKey();
 
         }
-        public void Fight(Monster target)
+        public override void Fight(entity_303 target)
         {
             if(Health <= 0)
             {
                 return;
             }
-            int damage = GetDamage();
-            damage -= Health;
+            int damage = GetDamage();            
             target.Health -= damage;
             Console.WriteLine(GetName() + "attacks! " + target.GetName() + " takes " + damage);
 
         }
-        public void Fight(Monster[] targets)
+        public void Fight(entity_303[] targets)
         {
             if (Health <= 0)
             {
@@ -100,6 +101,8 @@ namespace InventorySystem
                 }
 
             }
+
+                 
         }
     }    
 
