@@ -11,6 +11,8 @@ namespace InventorySystem
         private int _goodMonster;
         private entity_303[] _goodMonsters;
         private entity_303[] _badMonsters;
+        private entity_303[] _goodTeam;
+        private entity_303[] _badTeam;
 
         public Encounter(entity_303[] team1, entity_303[] team2)
         {
@@ -48,6 +50,15 @@ namespace InventorySystem
                 currentMonster.Fight(_goodMonsters);
            }
         }
+        private int GetTotalXP(entity_303[] entity_303)
+        {
+            int total = 0;
+            for (int i = 0; i < team.Length; i++)
+            {
+                total += team[i].GetXp();
+            }
+            return total;
+        }
 
         public void Start()
         {
@@ -56,7 +67,7 @@ namespace InventorySystem
             while (stillFighting)
             {
                 //check if team 1 is alive
-                bool team1 = true;
+                bool goodIsAlive = true;
                 for (int i = 0; i < _goodMonsters.Length; i++)
                 {
                     entity_303 currentMonster = _goodMonsters[i];
@@ -64,13 +75,13 @@ namespace InventorySystem
                     {
                         /*our team is alive and not dead, break out
                         of the loop*/
-                        team1 = true;
+                        goodIsAlive = true;
                         break;
                     }
                     else if (currentMonster.Health <= 0)
                     {
                         //our team may be dead
-                        team1 = false;
+                        goodIsAlive = false;
                     }
                 }   //check if team2 is alive
                 bool team2 = true;
@@ -84,16 +95,29 @@ namespace InventorySystem
 
                         team2 = totalBadHealth > 0;
                     }
-                    //if both teams are alive
-                    if (team1 && team2)
+                    stillFighting = false;
+                    if (goodIsAlive)
                     {
-                          stillFighting = true;
-                        BegainRound();
+                          foreach (entity_303 cr in _goodTeam)
+                          {
+                             if (cr is Character)
+                             {
+                               Character ch = (Character)cr;
+                               ch.Experience += GetTotalXP(_badTeam);
+                             }
+
+                          }
                     }
-                    else
+                    else if (badIsAlive)
                     {
-                       //stop
-                       stillFighting = false;
+                       foreach (entity_303 cr in _badTeam)
+                       {
+                          if (cr is Character)
+                          {
+                            Character ch = (Character)cr;
+                            ch.Experience += GetTotalXP(_goodTeam);
+                          }
+                       }
                     }
                      Print();
             } 

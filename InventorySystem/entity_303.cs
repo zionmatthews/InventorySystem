@@ -32,6 +32,16 @@ namespace InventorySystem
             return "";
         }
 
+        public virtual int GetDefense()
+        {
+            return 0;
+        }
+
+        public virtual void GetXp()
+        {
+
+        }
+
         public virtual void Print()
         {
 

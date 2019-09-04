@@ -28,6 +28,7 @@ namespace InventorySystem
         {
             return _damage;
         }
+        
         public int Health
         {
             get
@@ -78,6 +79,10 @@ namespace InventorySystem
                 return;
             }
 
+            
+            int choice = Program.random.Next(0, targets.Length);
+            Fight(targets[choice]);
+            /*
             bool validInput = false;
             while (!validInput)
             {
@@ -100,7 +105,7 @@ namespace InventorySystem
                     Fight(targets[choice]);
                 }
 
-            }
+            }*/
 
                  
         }

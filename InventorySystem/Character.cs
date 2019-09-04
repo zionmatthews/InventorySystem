@@ -24,8 +24,7 @@ namespace InventorySystem
         public Character(string name)
         {
             _name = name;
-            _health = 100;
-            _maxHealth = 100;
+         
         }
         public override string GetName()
         {
@@ -35,6 +34,11 @@ namespace InventorySystem
         public override int GetDamage()
         {
             return _strength + inventory.GetItemDamage();
+        }
+
+        public override int GetDefense()
+        {
+            return _dexterity;
         }
         public string Name()
         {

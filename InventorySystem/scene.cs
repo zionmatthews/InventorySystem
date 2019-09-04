@@ -14,8 +14,11 @@ namespace InventorySystem
         private int _south;
         private int _east;
         private int _west;
+        private string _hidden;
+        private entity_303[] _enemies;
+        private bool _cleared = false;
 
-        public scene(string name, int northID, int southID, int eastID, int westID, string description)
+        public scene(string name, int northID, int southID, int eastID, int westID, string description, entity_303[] _enemies)
         {
             _name = name;
             _description = description;
@@ -23,6 +26,28 @@ namespace InventorySystem
             _south = southID;
             _east = eastID;
             _west = westID;
+            _enemies = enemies;
+            _hidden = "Nothing was found.";
+            if (_enemies.Length == 0)
+            {
+                _cleared = true;
+            }
+        }
+
+        public scene(string name, int northID, int southID, int eastID, int westID, string description, string _hidden, entity_303[] _enemies)
+        {
+            _name = name;
+            _description = description;
+            _north = northID;
+            _south = southID;
+            _east = eastID;
+            _west = westID;
+            _enemies = enemies;
+            _hidden = _hidden;
+            if (_enemies.Length == 0)
+            {
+                _cleared = true;
+            }
         }
 
         //Return the name
@@ -34,6 +59,16 @@ namespace InventorySystem
         public string GetDescription()
         {
             return _description;
+        }
+
+        public entity_303[] GetEnemies()
+        {
+            return _enemies;
+        }
+
+        public bool GetCleared()
+        {
+            return _cleared;
         }
 
         public int ChooseExit()
@@ -75,6 +110,11 @@ namespace InventorySystem
                 return -1;
             }
             
+        }
+
+        public string GetHidden()
+        {
+            return _hidden;
         }
     }
 
