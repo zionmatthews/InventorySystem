@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InventorySystem
 {
-    class Monster : entity_303
+    class Monster : Entity_303
     {   
         private string _name = "Lynx";
         private int _health = 100;
@@ -61,7 +61,7 @@ namespace InventorySystem
             Console.ReadKey();
 
         }
-        public override void Fight(entity_303 target)
+        public override void Fight(Entity_303 target)
         {
             if(Health <= 0)
             {
@@ -72,7 +72,7 @@ namespace InventorySystem
             Console.WriteLine(GetName() + "attacks! " + target.GetName() + " takes " + damage);
 
         }
-        public void Fight(entity_303[] targets)
+        public void Fight(Entity_303[] targets)
         {
             if (Health <= 0)
             {

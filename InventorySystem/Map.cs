@@ -11,13 +11,17 @@ namespace InventorySystem
     {
         private int _currentLocation = 0; //ID of the current scene
         private scene[] _sceneList;        //List of all the scenes on the map
-        private entity_303[] _players;
+        private Entity_303[] _players;
 
-        public Map(int startingSceneID, scene[] scenes, entity_303[] players)
+        public Map(int startingSceneID, scene[] scenes, Entity_303[] players)
         {
             _currentLocation = startingSceneID;
             _sceneList = scenes;
             _players = players;
+        }
+
+        public Map(int v, scene[] scenes)
+        {
         }
 
         public void PrintCurrentScene()

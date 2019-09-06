@@ -9,12 +9,12 @@ namespace InventorySystem
     class Encounter
     {
         private int _goodMonster;
-        private entity_303[] _goodMonsters;
-        private entity_303[] _badMonsters;
-        private entity_303[] _goodTeam;
-        private entity_303[] _badTeam;
+        private Entity_303[] _goodMonsters;
+        private Entity_303[] _badMonsters;
+        private Entity_303[] _goodTeam;
+        private Entity_303[] _badTeam;
 
-        public Encounter(entity_303[] team1, entity_303[] team2)
+        public Encounter(Entity_303[] team1, Entity_303[] team2)
         {
             _goodMonsters = team1;
             _badMonsters = team2;
@@ -25,13 +25,13 @@ namespace InventorySystem
             //The good monsters
             for (int i = 0; i <_goodMonsters.Length; i++)
             {
-                entity_303 currentMonster = _goodMonsters[i];
+                Entity_303 currentMonster = _goodMonsters[i];
                 currentMonster.Print();
             }
             //The bad monsters
             for (int i = 0; i <_badMonsters.Length; i++)
             {
-                entity_303 currentMonster = _badMonsters[i];
+                Entity_303 currentMonster = _badMonsters[i];
                 currentMonster.Print();
             }
         }
@@ -40,22 +40,22 @@ namespace InventorySystem
         {
            for (int i = 0; i <_goodMonsters.Length; i++)
            {
-                entity_303 currentMonster = _goodMonsters[i];
+                Entity_303 currentMonster = _goodMonsters[i];
                 currentMonster.Fight(_badMonsters);
 
            }
            for (int i = 0; i <_badMonsters.Length; i++)
            {
-                entity_303 currentMonster = _badMonsters[i];
+                Entity_303 currentMonster = _badMonsters[i];
                 currentMonster.Fight(_goodMonsters);
            }
         }
-        private int GetTotalXP(entity_303[] entity_303)
+        private int GetTotalXP(Entity_303[] entity_303)
         {
             int total = 0;
-            for (int i = 0; i < team.Length; i++)
+            for (int i = 0; i < _goodMonsters.Length; i++)
             {
-                total += team[i].GetXp();
+                total += _goodMonsters[i].GetXp();
             }
             return total;
         }
@@ -68,9 +68,10 @@ namespace InventorySystem
             {
                 //check if team 1 is alive
                 bool goodIsAlive = true;
+                bool badIsAlive = false;
                 for (int i = 0; i < _goodMonsters.Length; i++)
                 {
-                    entity_303 currentMonster = _goodMonsters[i];
+                    Entity_303 currentMonster = _goodMonsters[i];
                     if (currentMonster.Health > 0)
                     {
                         /*our team is alive and not dead, break out
@@ -88,7 +89,7 @@ namespace InventorySystem
                 int totalBadHealth = 0;
                     for (int i = 0; i < _badMonsters.Length; i++)
                     {
-                        entity_303 currentMonster = _badMonsters[i];
+                        Entity_303 currentMonster = _badMonsters[i];
                         //Total up the health of each monster on this team
                         totalBadHealth += currentMonster.Health;
 
@@ -98,7 +99,7 @@ namespace InventorySystem
                     stillFighting = false;
                     if (goodIsAlive)
                     {
-                          foreach (entity_303 cr in _goodTeam)
+                          foreach (Entity_303 cr in _goodTeam)
                           {
                              if (cr is Character)
                              {
@@ -110,7 +111,7 @@ namespace InventorySystem
                     }
                     else if (badIsAlive)
                     {
-                       foreach (entity_303 cr in _badTeam)
+                       foreach (Entity_303 cr in _badTeam)
                        {
                           if (cr is Character)
                           {

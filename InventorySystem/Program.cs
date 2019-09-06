@@ -17,10 +17,10 @@ namespace InventorySystem
             Monster YwU = new Monster("YwU", 5, 6);
             Character myself = new Mage("Me ");
 
-            entity_303[] myTeam = { myself };
-            entity_303[] UwO = { UwU, OwO };
-            entity_303[] VwY = { VwU, YwU };
-            entity_303[] empty = { };
+            Entity_303[] myTeam = { myself };
+            Entity_303[] UwO = { UwU, OwO };
+            Entity_303[] VwY = { VwU, YwU };
+            Entity_303[] empty = { };
             
             //0: Courtyard
             //1: Cast;e Gate
@@ -30,7 +30,7 @@ namespace InventorySystem
 
             scene courtyard = new scene("Ze Courtyard",  1, 3, -1, 2, empty, "Ze courtyard is a wide and open to the sky. With a \nsmall garden nearby. There are exits to the north, south, east, and west");
             scene castleGate = new scene("Castle Gate",  -1, 0, -1, -1, UwO, "There is a massive gate at the entrance to the \ncastle. It appers to be locked. There is an exit to the south");
-            scene graveyard = new scene("Graveyard",    -1, -1, 0, -1, Vwy, "The graveyard is pretty spooky. Nonetheless, you pay respects. There is an exit to the east.");
+            scene graveyard = new scene("Graveyard",    -1, -1, 0, -1, VwY, "The graveyard is pretty spooky. Nonetheless, you pay respects. There is an exit to the east.");
             scene village = new scene("Village",       0, -1, -1, -1, empty, "This is the village. There are abunch of buildings, I guess. There is an exit to the west.");
 
 
@@ -49,7 +49,7 @@ namespace InventorySystem
             
             map.Menu();
 
-            //Console.ReadKey();
+            Console.ReadKey();
             return;
             
 

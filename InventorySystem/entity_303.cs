@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace InventorySystem
 {
-    class entity_303
+    class Entity_303
     {
         
         protected int _health = 100;
         protected int _maxHealth = 100;
 
 
-        public virtual void Fight(entity_303 target)
+        public virtual void Fight(Entity_303 target)
         {
 
         }
 
-        public virtual void Fight(entity_303[] targets)
+        public virtual void Fight(Entity_303[] targets)
         {
 
         }
@@ -37,9 +37,9 @@ namespace InventorySystem
             return 0;
         }
 
-        public virtual void GetXp()
+        public virtual int GetXp()
         {
-
+            return 0;
         }
 
         public virtual void Print()

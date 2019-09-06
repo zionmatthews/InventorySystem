@@ -15,10 +15,11 @@ namespace InventorySystem
         private int _east;
         private int _west;
         private string _hidden;
-        private entity_303[] _enemies;
+        private Entity_303[] _enemies;
         private bool _cleared = false;
+        private Entity_303[] enemies;
 
-        public scene(string name, int northID, int southID, int eastID, int westID, string description, entity_303[] _enemies)
+        public scene(string name, int northID, int southID, int eastID, int westID, string description, Entity_303[] _enemies)
         {
             _name = name;
             _description = description;
@@ -34,7 +35,7 @@ namespace InventorySystem
             }
         }
 
-        public scene(string name, int northID, int southID, int eastID, int westID, string description, string _hidden, entity_303[] _enemies)
+        public scene(string name, int northID, int southID, int eastID, int westID, string description, string _hidden, Entity_303[] _enemies)
         {
             _name = name;
             _description = description;
@@ -50,6 +51,14 @@ namespace InventorySystem
             }
         }
 
+        public scene(string v1, int v2, int v3, int v4, int v5, Entity_303[] empty, string v6)
+        {
+        }
+
+        public scene(string v1, int v2, int v3, int v4, int v5, object vwy, string v6)
+        {
+        }
+
         //Return the name
         public string GetName()
         {
@@ -61,7 +70,7 @@ namespace InventorySystem
             return _description;
         }
 
-        public entity_303[] GetEnemies()
+        public Entity_303[] GetEnemies()
         {
             return _enemies;
         }

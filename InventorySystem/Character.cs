@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InventorySystem
 {
-    class Character : entity_303
+    class Character : Entity_303
     {
         private string _name = "";
         private int _xp = 0;
@@ -34,6 +34,15 @@ namespace InventorySystem
         public override int GetDamage()
         {
             return _strength + inventory.GetItemDamage();
+        }
+
+        public  int Getlevel()
+        {
+            return 0;
+        }
+        public int Load(int level, int xp)
+        {
+            return 0;
         }
 
         public override int GetDefense()
@@ -93,7 +102,7 @@ namespace InventorySystem
 
         }
 
-        public override void Fight(entity_303 target)
+        public override void Fight(Entity_303 target)
         {
             if (Health <= 0)
             {
@@ -104,7 +113,7 @@ namespace InventorySystem
             Console.WriteLine(GetName() + "attacks! " + target.GetName() + " takes " + damage);
 
         }
-        public override  void Fight(entity_303[] targets)
+        public override  void Fight(Entity_303[] targets)
         {
             if (Health <= 0)
             {
