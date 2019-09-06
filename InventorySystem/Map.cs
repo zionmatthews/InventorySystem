@@ -20,9 +20,7 @@ namespace InventorySystem
             _players = players;
         }
 
-        public Map(int v, scene[] scenes)
-        {
-        }
+        
 
         public void PrintCurrentScene()
         {
@@ -177,5 +175,29 @@ namespace InventorySystem
                 Console.WriteLine("Save file not found.");
             }
         }
+       /* public void CharacterLoad()
+        {
+            CurrentSceneID = Convert.ToInt32(reader.ReadLine());
+            int partySize = Convert.ToInt32(reader.ReadLine());
+            Entity_303[] loadedCreatures = new Entity_303[partySize];
+            for(int i = 0; i < partySize; i++)
+            {
+                Character loadedCharacter;
+                string name = reader.ReadLine();
+                string job = reader.ReadLine();
+                if (job == "Mage")
+                {
+                    loadedCharacter = new Mage(name);
+                }
+                else
+                {
+                    loadedCharacter = new Character(name);
+                }
+                int level = Convert.ToInt32(reader.ReadLine());
+                int xp = Convert.ToInt32(reader.ReadLine());
+                loadedCharacter.Load(level, xp);
+                loadedCreatures.
+            }
+        }*/
     }
 }

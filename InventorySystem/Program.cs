@@ -35,7 +35,7 @@ namespace InventorySystem
 
 
             scene[] scenes = { courtyard, castleGate, graveyard, village };
-            Map map = new Map(0, scenes);
+            Map map = new Map(0, scenes, myTeam);
             
            // map.PrintCurrentScene();
             //map.CurrentSceneID = 1;

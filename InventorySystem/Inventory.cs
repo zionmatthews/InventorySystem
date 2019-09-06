@@ -32,7 +32,7 @@ namespace InventorySystem
 
         internal int GetItemDamage()
         {
-            throw new NotImplementedException();
+            return _damage;
         }
 
         public void Menu()

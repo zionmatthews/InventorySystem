@@ -8,10 +8,9 @@ namespace InventorySystem
 {
     class Monster : Entity_303
     {   
-        private string _name = "Lynx";
-        private int _health = 100;
+        private string _name = "Lynx";      
         private int _damage = 20;
-        private int _maxHealth = 100;
+       
 
         public Monster(string name, int health, int damage)
         {
@@ -29,30 +28,11 @@ namespace InventorySystem
             return _damage;
         }
         
-        public int Health
-        {
-            get
-            {
-                return _health;
-            }
-            set
-            {
-                _health = value;
-                if (_health > _maxHealth)
-                {
-                    _health = _maxHealth;
-                }
-                else if (_health < 0)
-                {
-                    _health = 0;
-                }
-            }
-
-        }
+       
 
 
 
-        public  void Print()
+        public override void Print()
           {
             Console.WriteLine("\n" + _name);
             Console.WriteLine(_health);
@@ -72,7 +52,7 @@ namespace InventorySystem
             Console.WriteLine(GetName() + "attacks! " + target.GetName() + " takes " + damage);
 
         }
-        public void Fight(Entity_303[] targets)
+        public override void Fight(Entity_303[] targets)
         {
             if (Health <= 0)
             {

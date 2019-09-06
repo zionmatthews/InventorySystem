@@ -17,9 +17,8 @@ namespace InventorySystem
         private string _hidden;
         private Entity_303[] _enemies;
         private bool _cleared = false;
-        private Entity_303[] enemies;
 
-        public scene(string name, int northID, int southID, int eastID, int westID, string description, Entity_303[] _enemies)
+        public scene(string name, int northID, int southID, int eastID, int westID,  Entity_303[] enemies,  string description)
         {
             _name = name;
             _description = description;
@@ -35,7 +34,7 @@ namespace InventorySystem
             }
         }
 
-        public scene(string name, int northID, int southID, int eastID, int westID, string description, string _hidden, Entity_303[] _enemies)
+        public scene(string name, int northID, int southID, int eastID, int westID,   Entity_303[] enemies,  string hidden, string description)
         {
             _name = name;
             _description = description;
@@ -44,21 +43,13 @@ namespace InventorySystem
             _east = eastID;
             _west = westID;
             _enemies = enemies;
-            _hidden = _hidden;
+            _hidden = hidden;
             if (_enemies.Length == 0)
             {
                 _cleared = true;
             }
         }
-
-        public scene(string v1, int v2, int v3, int v4, int v5, Entity_303[] empty, string v6)
-        {
-        }
-
-        public scene(string v1, int v2, int v3, int v4, int v5, object vwy, string v6)
-        {
-        }
-
+        
         //Return the name
         public string GetName()
         {
